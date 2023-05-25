@@ -1,0 +1,20 @@
+{
+    "name": "exan/landviz",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Exan\\Landviz\\": "src/"
+        }
+    },
+    "require": {
+        "exan/container": "^1.0.1",
+        "exan/router": "^1.0",
+        "httpsoft/http-server-request": "^1.1",
+        "httpsoft/http-emitter": "^1.1",
+        "league/plates": "^3.5"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.2"
+    }
+}
