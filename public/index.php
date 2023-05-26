@@ -23,7 +23,7 @@ if (
 }
 
 $container = new Container();
-$container->register(Engine::class, new Engine('./templates'));
+$container->register(Engine::class, new Engine(__DIR__ . '/../templates'));
 $container->register(Config::class, new Config(__DIR__ . '/../conf'));
 
 $router = new Router($container, Routes::get());
