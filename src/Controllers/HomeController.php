@@ -16,8 +16,18 @@ class HomeController extends Controller
     public function index(): ResponseInterface
     {
         $stream = new Stream();
-        $stream->write($this->plates->render('home'));
+        $stream->write($this->plates->render('pages/home'));
 
         return new Response(200, [], $stream);
+    }
+
+    public function colors()
+    {
+
+    }
+
+    public function projects()
+    {
+
     }
 }

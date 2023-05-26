@@ -1,0 +1,157 @@
+@import url("/public/assets/css/keyframes.css");
+@import url("/public/assets/css/fonts.css");
+
+body {
+    background-color: #eee;
+}
+
+h1, h2, h3 {
+    font-family: 'Cookie';
+}
+
+h4, h5, h6 {
+    font-family: 'Alkatra';
+}
+
+a {
+    text-decoration: none;
+    color: #ED6A5A;
+    transition-duration: 0.3s;
+}
+
+a:hover {
+    color: #75180C;
+}
+
+.snowflake {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    animation: snowfall var(--duration) infinite linear;
+}
+
+@keyframes snowfall {
+    from {
+        top: var(--init-top);
+        left: var(--init-left);
+    }
+
+    to {
+        top: 110%;
+        left: var(--end-left);
+    }
+}
+
+#header {
+    background: url("/public/assets/img/header-bg.gif");
+    animation: rick;
+    animation-duration: 8000s;
+    background-position: 50% 40%;
+    overflow: hidden;
+}
+
+@keyframes rick {
+    0% {
+        background: linear-gradient(0deg, #9BC1BC, #E6EBE0);
+    }
+    99% {
+        background: linear-gradient(0deg, #9BC1BC, #E6EBE0);
+    }
+    to {
+        background: url("/public/assets/img/header-bg.gif");
+    }
+}
+
+#header-image {
+    max-height: 30vh;
+    max-width: 100%;
+}
+
+.rainbow {
+    animation: rainbow 1s infinite linear,
+        snowfall var(--duration) infinite linear;
+}
+
+@keyframes rainbow {
+    0% {
+        background: red;
+    }
+
+    15% {
+        background: orange;
+    }
+
+    30% {
+        background: yellow;
+    }
+
+    45% {
+        background: lightgreen;
+    }
+
+    60% {
+        background: lightskyblue;
+    }
+
+    75% {
+        background: blue;
+    }
+
+    90% {
+        background: purple;
+    }
+
+    to {
+        background: red;
+    }
+}
+
+.lv-card {
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0.2rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0.8rem 0.8rem 0.8rem rgba(155, 193, 188, 0.2);
+    margin-top: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 1200px) {
+    .lv-card {
+        text-align: left;
+    }
+}
+
+.lv-card-img:hover {
+    transform: scale(1.05);
+}
+
+.lv-card-img {
+    transition-duration: 0.3s;
+    max-width: 100%;
+    max-height: 12rem;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.lv-card-footer {
+    margin-top: 4rem;
+    font-size: 0.8rem;
+}
+
+.lv-card-footer a {
+    float: right;
+}
+
+.btn-lv {
+    background-color: #ED6A5A;
+    transition-duration: 0.3s;
+    color: white
+}
+
+.btn-lv:hover {
+    background-color: #75180C;
+    color: white
+}
