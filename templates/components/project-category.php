@@ -9,7 +9,7 @@
 <div class="mb-5">
     <h1 class="text-center"><?= $category_name ?></h1>
 
-    <?php if (isset($description)): ?>
+    <?php if (isset($description) && !is_null($description)): ?>
         <p class="text-center"><?= $description ?></p>
     <?php endif ?>
 

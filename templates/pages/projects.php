@@ -17,7 +17,7 @@
 
             <?php $this->insert('components/project-category', [
                 'category_name' => $category['name'],
-                'description' => $category['description'],
+                'description' => $category['description'] ?? null,
                 'projects' => $category['projects'],
             ]) ?>
 

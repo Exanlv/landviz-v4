@@ -50,16 +50,11 @@ class HomeController extends Controller
         $categories = [];
 
         foreach ($allCategories as $categoryName => $category) {
-            $newCategory = [
+            $categories[] = [
                 'name' => $categoryName,
+                'description' => $category['description'] ?? null,
                 'projects' => array_map(fn ($project) => $allProjects[$project], $category['projects'])
             ];
-
-            if (isset($category['description'])) {
-                $newCategory['description'] = $category['description'];
-            }
-
-            $categories[] = $newCategory;
         }
 
         $stream = new Stream();
