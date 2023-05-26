@@ -12,7 +12,7 @@ use HttpSoft\ServerRequest\ServerRequestCreator;
 use League\Plates\Engine;
 use Psr\Http\Message\ResponseInterface;
 
-require_once './vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if (
     php_sapi_name() == 'cli-server'
