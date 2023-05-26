@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^landviz.nl$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.landviz.nl$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/index.php [L]
