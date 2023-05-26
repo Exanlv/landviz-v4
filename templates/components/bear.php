@@ -1,10 +1,3 @@
-<?php
-
-// phpcs:disable
-
-$color = "FF0000";
-
-?>
 <svg
    version="1.1"
    id="header-image"

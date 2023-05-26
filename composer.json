@@ -9,12 +9,18 @@
     },
     "require": {
         "exan/container": "^1.0.1",
-        "exan/router": "^1.0",
+        "exan/router": "^1.0.1",
         "httpsoft/http-server-request": "^1.1",
         "httpsoft/http-emitter": "^1.1",
-        "league/plates": "^3.5"
+        "league/plates": "^3.5",
+        "exan/config": "^1.0"
     },
     "require-dev": {
-        "symfony/var-dumper": "^6.2"
+        "symfony/var-dumper": "^6.2",
+        "friendsofphp/php-cs-fixer": "^3.16"
+    },
+    "scripts": {
+        "cs": "./vendor/bin/php-cs-fixer fix src/ --rules=@PER --dry-run --diff",
+        "csf": "./vendor/bin/php-cs-fixer fix src/ --rules=@PER"
     }
 }

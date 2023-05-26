@@ -12,5 +12,5 @@
     <?php $this->insert('components/nav') ?>
     <?php $this->insert('components/header') ?>
 
-    <?= $this->section('my-section', 'Default') ?>
+    <?= $this->section('main', 'If you see this, I messed something up :)') ?>
 <?php $this->stop() ?>

@@ -15,8 +15,8 @@ class Routes
     {
         return [
             new Route('GET', '/^\/$/', HomeController::class, 'index'),
-            new Route('GET', '/^\/projects$/', HomeController::class, 'index'),
-            new Route('GET', '/^\/colors$/', HomeController::class, 'index'),
+            new Route('GET', '/^\/projects$/', HomeController::class, 'projects'),
+            new Route('GET', '/^\/colors$/', HomeController::class, 'colors'),
         ];
     }
 }
