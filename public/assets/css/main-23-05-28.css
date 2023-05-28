@@ -10,7 +10,8 @@ h1, h2, h3 {
 }
 
 h4, h5, h6 {
-    font-family: 'Alkatra';
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 a {
@@ -45,23 +46,8 @@ a:hover {
 }
 
 #header {
-    background: url("/public/assets/img/header-bg.gif");
-    animation: rick;
-    animation-duration: 8000s;
-    background-position: 50% 40%;
+    background: linear-gradient(0deg, #9BC1BC, #E6EBE0);
     overflow: hidden;
-}
-
-@keyframes rick {
-    0% {
-        background: linear-gradient(0deg, #9BC1BC, #E6EBE0);
-    }
-    99% {
-        background: linear-gradient(0deg, #9BC1BC, #E6EBE0);
-    }
-    to {
-        background: url("/public/assets/img/header-bg.gif");
-    }
 }
 
 #header-image {
