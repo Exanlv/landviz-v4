@@ -3,7 +3,6 @@
 namespace Exan\Landviz\Controllers;
 
 use Exan\Config\Config;
-use Exception;
 use HttpSoft\Message\Response;
 use HttpSoft\Message\Stream;
 use League\Plates\Engine;

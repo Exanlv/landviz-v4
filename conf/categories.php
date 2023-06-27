@@ -29,7 +29,9 @@ return [
 
 
 
-    // 'Miscellaneous' => [
-
-    // ]
+    'Miscellaneous' => [
+        'projects' => [
+            'phpfuck',
+        ]
+    ]
 ];

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8849a81b756211ec3e54ad775ee456f",
+    "content-hash": "7a69bb7f720534c98ad8b92ce6b120a5",
     "packages": [
         {
             "name": "exan/config",
@@ -77,6 +77,42 @@
                 "source": "https://github.com/Exanlv/Container/tree/1.0.1"
             },
             "time": "2023-05-25T14:21:50+00:00"
+        },
+        {
+            "name": "exan/phpfuck",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Exanlv/phpfuck.git",
+                "reference": "73096297fc854dde0e2eeb908fee5c05eff66e7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Exanlv/phpfuck/zipball/73096297fc854dde0e2eeb908fee5c05eff66e7b",
+                "reference": "73096297fc854dde0e2eeb908fee5c05eff66e7b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Exan\\PhpFuck\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "exanlv"
+                }
+            ],
+            "description": "PHP Fuck",
+            "support": {
+                "issues": "https://github.com/Exanlv/phpfuck/issues",
+                "source": "https://github.com/Exanlv/phpfuck/tree/1.0.0"
+            },
+            "time": "2023-06-27T13:23:50+00:00"
         },
         {
             "name": "exan/router",

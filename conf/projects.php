@@ -70,4 +70,11 @@ return [
         'url' => 'https://github.com/rxak-php/Migrations',
         'highlighted' => false,
     ],
+    'phpfuck' => [
+        'name' => 'PHP Fuck',
+        'footer' => 'Uses PHP',
+        'description' => 'A port of JS Fuck for PHP. It converts PHP code into valid unreadable code using only <code>()[]@!",.+^</code>. Try it <a href="/fuck">here!</a>',
+        'url' => 'https://github.com/Exanlv/phpfuck',
+        'highlighted' => false,
+    ],
 ];
