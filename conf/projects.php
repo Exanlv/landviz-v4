@@ -21,7 +21,7 @@ return [
         'name' => 'Landviz.nl',
         'footer' => 'Uses PHP, Rxak, HttpSoft',
         'img' => '/public/assets/img/projects/landviz_nl.webp',
-        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components for routing, dependency injection and configuration. This ends up being about twice as fast (computing time) as my previous solution which used SlimPHP. There\'s also a few easter eggs you can try to find. ',
+        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components dependency injection and configuration. This ends up being about twice as fast (computing time) as my previous solution which used SlimPHP. There\'s also a few easter eggs you can try to find. ',
         'url' => 'https://github.com/Exanlv/landviz-nb',
         'highlighted' => true,
     ],
@@ -40,13 +40,6 @@ return [
         'footer' => 'Uses PHP, PSR-11',
         'description' => 'An implementation for PSR-11 ContainerInterface which can automatically resolve dependencies. Similar to Laravel\'s container.',
         'url' => 'https://github.com/rxak-php/Container',
-        'highlighted' => false,
-    ],
-    'router' => [
-        'name' => 'Router',
-        'footer' => 'Uses PHP, PSR-7',
-        'description' => 'A HTTP router for routing PSR-7 requests. Supports multi-domain, grouping and uses regex for its pattern matching. Multi-domain support out of the box and can be easily extended to support most usecases. The use of regex for the routing allows it to be extremely fast compared to other solutions which use a more user friendly format.',
-        'url' => 'https://github.com/rxak-php/Router',
         'highlighted' => false,
     ],
     'eventer' => [

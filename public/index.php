@@ -2,6 +2,7 @@
 
 use Exan\Config\Config;
 use Exan\Container\Container;
+use Exan\Landviz\Controllers\ErrorController;
 use Exan\Landviz\Controllers\FuckController;
 use Exan\Landviz\Controllers\HomeController;
 use HttpSoft\Emitter\SapiEmitter;
@@ -12,14 +13,6 @@ use League\Route\Strategy\ApplicationStrategy;
 use League\Route\Strategy\StrategyInterface;
 
 require __DIR__ . '/../vendor/autoload.php';
-
-if (
-    php_sapi_name() == 'cli-server'
-    && $_SERVER["REQUEST_URI"] !== '/'
-    && file_exists(__DIR__ . '/../' . $_SERVER["REQUEST_URI"])
-) {
-    return false;
-}
 
 $container = new Container();
 $container->register(Engine::class, new Engine(__DIR__ . '/../templates'));
@@ -38,6 +31,12 @@ $router->map('GET',  '/fuck', [FuckController::class, 'form']);
 $router->map('POST', '/fuck', [FuckController::class, 'fuck']);
 
 $request = ServerRequestCreator::createFromGlobals();
-$response = $router->dispatch($request);
+
+try {
+    $response = $router->dispatch($request);
+} catch (Throwable $e) {
+    $response = $container->get(ErrorController::class)->resolve($e);
+}
+
 
 (new SapiEmitter())->emit($response);
