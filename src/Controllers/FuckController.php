@@ -2,6 +2,7 @@
 
 namespace Exan\Landviz\Controllers;
 
+use Exan\Config\Config;
 use Exan\PhpFuck\Fucker;
 use HttpSoft\Message\Response;
 use HttpSoft\Message\Stream;
@@ -12,8 +13,13 @@ class FuckController extends Controller
 {
     public function __construct(
         private readonly Engine $plates,
+        private readonly Config $config,
         private readonly Fucker $fucker,
     ) {
+        $colors = $this->config->get('hat-colors');
+        $color = $colors[array_rand($colors)];
+
+        $this->plates->addData(['color' => $color, 'components/bear']);
     }
 
     public function form()
