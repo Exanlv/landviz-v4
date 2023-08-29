@@ -20,14 +20,11 @@ return [
 
         'projects' => [
             'container',
-            'router',
             'eventer',
             'reactphp-retrier',
             'migrations',
         ],
     ],
-
-
 
     'Miscellaneous' => [
         'projects' => [

@@ -2,10 +2,11 @@
 
 namespace Exan\Landviz\Controllers;
 
-use Exan\Router\Exceptions\HttpException;
 use HttpSoft\Message\Response;
-use HttpSoft\Message\Stream;
 use League\Plates\Engine;
+use League\Route\Http\Exception\NotFoundException;
+use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
 class ErrorController extends Controller
 {
@@ -13,13 +14,29 @@ class ErrorController extends Controller
     {
     }
 
-    public function render(HttpException $exception)
+    public function resolve(Throwable $e): ResponseInterface
     {
-        $stream = new Stream();
-        $stream->write($this->plates->render('pages/error', [
-            'exception' => $exception,
+        $knownErrors = [
+            NotFoundException::class => [404, 'Not Found.'],
+        ];
+
+        foreach ($knownErrors as $error => $params) {
+            if ($e instanceof $error) {
+                return $this->render(...$params);
+            }
+        }
+
+        return $this->render(502, 'Something went wrong.');
+    }
+
+    public function render(int $status, string $message)
+    {
+        $response = new Response($status);
+        $response->getBody()->write($this->plates->render('pages/error', [
+            'code' => $status,
+            'message' => $message,
         ]));
 
-        return new Response($exception->getHttpErrorCode(), [], $stream);
+        return $response;
     }
 }
