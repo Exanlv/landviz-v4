@@ -3,6 +3,7 @@
 namespace Exan\Landviz\Controllers;
 
 use Exan\Config\Config;
+use Exan\Landviz\ResponseBuilder;
 use Exan\PhpFuck\Fucker;
 use HttpSoft\Message\Response;
 use HttpSoft\Message\Stream;
@@ -12,22 +13,15 @@ use Psr\Http\Message\RequestInterface;
 class FuckController extends Controller
 {
     public function __construct(
-        private readonly Engine $plates,
+        private readonly ResponseBuilder $responseBuilder,
         private readonly Config $config,
         private readonly Fucker $fucker,
     ) {
-        $colors = $this->config->get('hat-colors');
-        $color = $colors[array_rand($colors)];
-
-        $this->plates->addData(['color' => $color, 'components/bear']);
     }
 
-    public function form()
+    public function form(RequestInterface $request)
     {
-        $stream = new Stream();
-        $stream->write($this->plates->render('pages/fuck/form'));
-
-        return new Response(200, [], $stream);
+        return $this->responseBuilder->build($request, 'pages/fuck/form', [], false);
     }
 
     public function fuck(RequestInterface $request)
@@ -45,9 +39,6 @@ class FuckController extends Controller
             $code = $default;
         }
 
-        $stream = new Stream();
-        $stream->write($this->plates->render('pages/fuck/display', ['code' => $this->fucker->fuckCode($code)]));
-
-        return new Response(body: $stream);
+        return $this->responseBuilder->build($request, 'pages/fuck/display', ['code' => $this->fucker->fuckCode($code)], false);
     }
 }
