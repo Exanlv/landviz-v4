@@ -30,7 +30,7 @@ class HomeController extends Controller
         $stream = new Stream();
         $stream->write($this->plates->render('pages/home', ['projects' => $projects]));
 
-        return new Response(200, [], $stream);
+        return new Response(body:  $stream);
     }
 
     public function colors()
@@ -38,7 +38,7 @@ class HomeController extends Controller
         $stream = new Stream();
         $stream->write($this->plates->render('pages/colors', ['colors' => $this->config->get('colors')]));
 
-        return new Response(200, [], $stream);
+        return new Response(body:  $stream);
     }
 
     public function projects()
@@ -59,6 +59,6 @@ class HomeController extends Controller
         $stream = new Stream();
         $stream->write($this->plates->render('pages/projects', ['categories' => $categories]));
 
-        return new Response(200, [], $stream);
+        return new Response(body:  $stream);
     }
 }

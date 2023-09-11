@@ -1,6 +1,7 @@
 <?php
 
 use Exan\Landviz\App;
+use Exan\Landviz\Controllers\DependencyController;
 use Exan\Landviz\Controllers\ErrorController;
 use Exan\Landviz\Controllers\FuckController;
 use Exan\Landviz\Controllers\HomeController;
@@ -25,6 +26,8 @@ $router->map('GET', '/colors',   [HomeController::class, 'colors']);
 
 $router->map('GET',  '/fuck', [FuckController::class, 'form']);
 $router->map('POST', '/fuck', [FuckController::class, 'fuck']);
+
+$router->map('GET', '/dependencies', [DependencyController::class, 'index']);
 
 $request = ServerRequestCreator::createFromGlobals();
 

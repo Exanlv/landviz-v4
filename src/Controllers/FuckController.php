@@ -48,6 +48,6 @@ class FuckController extends Controller
         $stream = new Stream();
         $stream->write($this->plates->render('pages/fuck/display', ['code' => $this->fucker->fuckCode($code)]));
 
-        return new Response(200, [], $stream);
+        return new Response(body: $stream);
     }
 }
