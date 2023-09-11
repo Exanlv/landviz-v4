@@ -15,10 +15,22 @@
         <h1>Dependencies</h1>
         <p>List of all currently installed dependencies on this site</p>
 
-        <?php foreach ($dependencies as $package): ?>
-            <b><?= $package['name'] ?></b> - <?= $package['version'] ?> <br />
-        <?php endforeach ?>
+        <table class="table">
+            <?php foreach ($dependencies as $package): ?>
+                <tr>
+                    <td class="fw-bold">
+                        <?= $package['name'] ?>
+                    </td>
+                    <td>
+                        <?= $package['version'] ?>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+
     </div>
 </div>
+
+<?php $this->insert('components/available-as-json') ?>
 
 <?php $this->stop() ?>

@@ -145,3 +145,9 @@ a:hover {
 .fuck-input {
     font-family: 'Courier New', monospace;
 }
+
+.json-available {
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0.6;
+}

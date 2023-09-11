@@ -32,4 +32,6 @@
     </div>
 </div>
 
+<?php $this->insert('components/available-as-json') ?>
+
 <?php $this->stop() ?>
