@@ -2,6 +2,7 @@
 
 use Exan\Landviz\App;
 use Exan\Landviz\Controllers\HomeController;
+use HttpSoft\Message\Request;
 use PHPUnit\Framework\TestCase;
 
 class HomeControllerTest extends TestCase
@@ -15,7 +16,7 @@ class HomeControllerTest extends TestCase
 
     public function testItShowsHighlightedProjectsOnTheHomePage()
     {
-        $response = $this->homeController->index();
+        $response = $this->homeController->index(new Request());
         $body = (string) $response->getBody();
 
         $this->assertStringContainsString('Fenrir', $body);
@@ -24,7 +25,7 @@ class HomeControllerTest extends TestCase
 
     public function testItShowsProjects()
     {
-        $response = $this->homeController->projects();
+        $response = $this->homeController->projects(new Request());
         $body = (string) $response->getBody();
 
         $this->assertStringContainsString('Discord', $body);

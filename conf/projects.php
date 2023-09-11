@@ -21,7 +21,7 @@ return [
         'name' => 'Landviz.nl',
         'footer' => 'Uses PHP, Rxak, HttpSoft',
         'img' => '/public/assets/img/projects/landviz_nl.webp',
-        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components dependency injection and configuration. This ends up being about twice as fast (computing time) as my previous solution which used SlimPHP. There\'s also a few easter eggs you can try to find. ',
+        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components dependency injection and configuration. Check out a full list of dependencies <a href="/dependencies">here!</a>. There\'s also a few easter eggs you can try to find. ',
         'url' => 'https://github.com/Exanlv/landviz-nb',
         'highlighted' => true,
     ],

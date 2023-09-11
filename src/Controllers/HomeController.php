@@ -3,45 +3,38 @@
 namespace Exan\Landviz\Controllers;
 
 use Exan\Config\Config;
-use HttpSoft\Message\Response;
-use HttpSoft\Message\Stream;
-use League\Plates\Engine;
+use Exan\Landviz\ResponseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 class HomeController extends Controller
 {
     public function __construct(
-        private readonly Engine $plates,
+        private readonly ResponseBuilder $responseBuilder,
         private readonly Config $config,
     ) {
-        $colors = $this->config->get('hat-colors');
-        $color = $colors[array_rand($colors)];
-
-        $this->plates->addData(['color' => $color, 'components/bear']);
     }
 
-    public function index(): ResponseInterface
+    public function index(RequestInterface $request): ResponseInterface
     {
         $projects = array_filter(
             $this->config->get('projects'),
             fn ($p) => $p['highlighted']
         );
 
-        $stream = new Stream();
-        $stream->write($this->plates->render('pages/home', ['projects' => $projects]));
-
-        return new Response(body:  $stream);
+        return $this->responseBuilder->build($request, 'pages/home', ['projects' => $projects], false);
     }
 
-    public function colors()
+    public function colors(RequestInterface $request)
     {
-        $stream = new Stream();
-        $stream->write($this->plates->render('pages/colors', ['colors' => $this->config->get('colors')]));
-
-        return new Response(body:  $stream);
+        return $this->responseBuilder->build(
+            $request,
+            'pages/colors',
+            ['colors' => $this->config->get('colors')]
+        );
     }
 
-    public function projects()
+    public function projects(RequestInterface $request)
     {
         $allProjects = $this->config->get('projects');
         $allCategories = $this->config->get('categories');
@@ -56,9 +49,10 @@ class HomeController extends Controller
             ];
         }
 
-        $stream = new Stream();
-        $stream->write($this->plates->render('pages/projects', ['categories' => $categories]));
-
-        return new Response(body:  $stream);
+        return $this->responseBuilder->build(
+            $request,
+            'pages/projects',
+            ['categories' => $categories]
+        );
     }
 }
