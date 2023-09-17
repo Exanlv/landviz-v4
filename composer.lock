@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc065f5d6f1c654ea660c3d01f466adb",
+    "content-hash": "f4a82eab6142eabf4679a0a39b857b0c",
     "packages": [
         {
             "name": "exan/config",
@@ -77,6 +77,51 @@
                 "source": "https://github.com/Exanlv/Container/tree/1.0.1"
             },
             "time": "2023-05-25T14:21:50+00:00"
+        },
+        {
+            "name": "exan/input-parser",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rxak-php/input-parser.git",
+                "reference": "fd5f26b723673ae460e9924b26ae37c5efca3ae3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rxak-php/input-parser/zipball/fd5f26b723673ae460e9924b26ae37c5efca3ae3",
+                "reference": "fd5f26b723673ae460e9924b26ae37c5efca3ae3",
+                "shasum": ""
+            },
+            "require": {
+                "psr/http-message": "^1.0 | ^2.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.26",
+                "mockery/mockery": "^1.6",
+                "phpunit/phpunit": "^10.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Exan\\InputParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Exanlv",
+                    "email": "exan@landviz.nl"
+                }
+            ],
+            "description": "Parse body of PSR7 requests",
+            "support": {
+                "issues": "https://github.com/rxak-php/input-parser/issues",
+                "source": "https://github.com/rxak-php/input-parser/tree/1.0.1"
+            },
+            "time": "2023-09-17T09:35:13+00:00"
         },
         {
             "name": "exan/phpfuck",

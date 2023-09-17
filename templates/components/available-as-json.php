@@ -4,7 +4,7 @@
         <p>This content is also available as JSON</p>
 
         <code class="d-block text-left">
-            curl --request GET --url https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?> --header 'Accept: application/json'
+            curl --request <?= $method ?? 'GET' ?> --url https://<?= ($_SERVER['HTTP_HOST'] ?? 'landviz.nl') . ($_SERVER['REQUEST_URI'] ?? '/') ?> --header 'Accept: application/json' <?= isset($body) ? '--data ' . $body : '' ?>
         </code>
     </div>
 </div>

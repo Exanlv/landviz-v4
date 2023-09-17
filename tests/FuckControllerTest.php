@@ -1,5 +1,6 @@
 <?php
 
+use Exan\InputParser\Parser;
 use Exan\Landviz\App;
 use Exan\Landviz\Controllers\FuckController;
 use Exan\PhpFuck\Fucker;
@@ -11,13 +12,18 @@ use Psr\Http\Message\StreamInterface;
 class FuckControllerTest extends TestCase
 {
     private FuckController $fuckController;
+    private MockInterface&Parser $parser;
     private MockInterface&Fucker $fucker;
 
     protected function setUp(): void
     {
         $this->fucker = Mockery::mock(Fucker::class);
+        $this->parser = Mockery::mock(Parser::class);
+
         $container = App::getContainer();
+
         $container->register(Fucker::class, $this->fucker);
+        $container->register(Parser::class, $this->parser);
 
         $this->fuckController = $container->get(FuckController::class);
     }
@@ -40,13 +46,26 @@ class FuckControllerTest extends TestCase
             ->getBody()
             ->andReturns($stream);
 
+        $request->shouldReceive()
+            ->getHeader()
+            ->with('Accept')
+            ->andReturn([]);
+
         return $request;
     }
 
     public function testItFucksCode()
     {
+        $request = $this->getMockRequest('code=::code::');
+
+        $this->parser->shouldReceive()
+            ->parse()
+            ->with($request)
+            ->andReturn(['code' => '::code::']);
+
         $this->fucker->shouldReceive()->fuckCode()->with('::code::')->andReturns('::fucked code::');
-        $response = $this->fuckController->fuck($this->getMockRequest('code=::code::'));
+
+        $response = $this->fuckController->fuck($request);
 
         $body = (string) $response->getBody();
 

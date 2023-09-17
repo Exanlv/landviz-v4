@@ -21,4 +21,12 @@
     </div>
 </div>
 
+<?php $this->insert(
+    'components/available-as-json',
+    [
+        'method' => 'POST',
+        'body' => json_encode(['code' => 'my-code'])
+    ]
+) ?>
+
 <?php $this->stop() ?>
