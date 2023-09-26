@@ -15,7 +15,8 @@
         "exan/config": "^1.0",
         "exan/phpfuck": "^1.0",
         "league/route": "^5.0",
-        "exan/input-parser": "^1.0"
+        "exan/input-parser": "^1.0",
+        "symfony/validator": "^6.3"
     },
     "require-dev": {
         "symfony/var-dumper": "^6.2",

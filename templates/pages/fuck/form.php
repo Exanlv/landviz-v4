@@ -11,6 +11,7 @@
 <?php $this->start('main') ?>
 
 <div class="px-md-5 mb-5">
+    <?php $this->insert('components/errors', ['errors' => $errors ?? []]) ?>
     <div class="container px-md-5 text-center">
         <h1>Fuck your code</h1>
         <p>Enter PHP code to fuck below. HTML not supported. Do not use PHP opening or closing tags. Leave empty for hello world.</p>
@@ -26,7 +27,10 @@
     'components/available-as-json',
     [
         'method' => 'POST',
-        'body' => json_encode(['code' => 'my-code'])
+        'body' => json_encode(['code' => 'my-code']),
+        'headers' => [
+            '\'Content-Type: application/json\''
+        ],
     ]
 ) ?>
 
