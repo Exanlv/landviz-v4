@@ -10,7 +10,7 @@ return [
     'Discord' => [
         'projects' => [
             'fenrir',
-            'bifrost',
+            // 'bifrost',
             'bread_bot',
         ],
     ],

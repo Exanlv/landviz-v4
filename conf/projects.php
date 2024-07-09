@@ -9,14 +9,14 @@ return [
         'url' => 'https://github.com/dc-Ragnarok/Fenrir',
         'highlighted' => true,
     ],
-    'bifrost' => [
-        'name' => 'Bifrost',
-        'footer' => 'Uses PHP, ReactPHP (WIP)',
-        'img' => '/public/assets/img/projects/bifrost.webp',
-        'description' => 'Bifrost is a low-level HTTP library for Discord\'s REST APIs. It handles ratelimiting in a multi-process compatible way.',
-        'url' => 'https://github.com/dc-Ragnarok/Bifrost',
-        'highlighted' => false,
-    ],
+    // 'bifrost' => [
+    //     'name' => 'Bifrost',
+    //     'footer' => 'Uses PHP, ReactPHP (WIP)',
+    //     'img' => '/public/assets/img/projects/bifrost.webp',
+    //     'description' => 'Bifrost is a low-level HTTP library for Discord\'s REST APIs. It handles ratelimiting in a multi-process compatible way.',
+    //     'url' => 'https://github.com/dc-Ragnarok/Bifrost',
+    //     'highlighted' => false,
+    // ],
     'landviz' => [
         'name' => 'Landviz.nl',
         'footer' => 'Uses PHP, Rxak, HttpSoft',
