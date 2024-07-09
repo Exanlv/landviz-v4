@@ -8,6 +8,8 @@ use Exan\InputParser\Parser;
 use HttpSoft\Message\StreamFactory;
 use League\Plates\Engine;
 use Psr\Http\Message\StreamFactoryInterface;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class App
 {
@@ -27,6 +29,7 @@ class App
         $container->register(Engine::class, $engine);
         $container->register(Config::class, $config);
         $container->register(StreamFactoryInterface::class, new StreamFactory());
+        $container->register(ValidatorInterface::class, Validation::createValidator());
 
         return $container;
     }
