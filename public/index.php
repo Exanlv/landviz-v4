@@ -5,6 +5,7 @@ use Exan\Landviz\Controllers\DependencyController;
 use Exan\Landviz\Controllers\ErrorController;
 use Exan\Landviz\Controllers\FuckController;
 use Exan\Landviz\Controllers\HomeController;
+use Exan\Landviz\Controllers\WoodController;
 use HttpSoft\Emitter\SapiEmitter;
 use HttpSoft\ServerRequest\ServerRequestCreator;
 use League\Route\Router;
@@ -28,6 +29,9 @@ $router->map('GET',  '/fuck', [FuckController::class, 'form']);
 $router->map('POST', '/fuck', [FuckController::class, 'fuck']);
 
 $router->map('GET', '/dependencies', [DependencyController::class, 'index']);
+
+$router->map('GET', '/wood', [WoodController::class, 'form']);
+$router->map('GET', '/wood/document', [WoodController::class, 'document']);
 
 $request = ServerRequestCreator::createFromGlobals();
 

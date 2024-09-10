@@ -19,7 +19,7 @@
         "symfony/validator": "^6.3"
     },
     "require-dev": {
-        "symfony/var-dumper": "^6.2",
+        "symfony/var-dumper": "^6.4",
         "friendsofphp/php-cs-fixer": "^3.16",
         "phpunit/phpunit": "^10.3",
         "mockery/mockery": "^1.6"

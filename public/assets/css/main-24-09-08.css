@@ -151,3 +151,19 @@ a:hover {
     text-align: center;
     opacity: 0.6;
 }
+
+.wood-form {
+    width: 100%;
+    border: 1px dashed gray;
+    border-radius: 7px;
+    border-collapse: separate !important;
+    margin-bottom: 1.5rem;
+}
+
+.wood-form td {
+    padding: 0.8rem;
+}
+
+.wood-form .btn-danger {
+    width: 100%;
+}
