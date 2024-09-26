@@ -24,15 +24,15 @@
 
         <p>
             <form action="/wood/document">
-                <?php if (isset($parts)): ?>
-                    <?php foreach ($parts as $part): ?>
-                        <?= $this->insert('pages/wood/part-input', $part) ?>
-                    <?php endforeach ?>
-                <?php else: ?>
-                    <div id="wood-form">
+                <div id="wood-form">
+                    <?php if (isset($parts)): ?>
+                        <?php foreach ($parts as $part): ?>
+                            <?= $this->insert('pages/wood/part-input', $part) ?>
+                        <?php endforeach ?>
+                    <?php else: ?>
                         <?= $this->insert('pages/wood/part-input') ?>
-                    </div>
-                <?php endif ?>
+                    <?php endif ?>
+                </div>
 
                 <table width="100%">
                     <tr>
