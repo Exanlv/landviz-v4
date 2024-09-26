@@ -15,7 +15,7 @@
     <title>Document</title>
     <style>
         html {
-            font-size: 5px;
+            font-size: <?= $fontSize ?>px;
         }
 
         span {
@@ -69,7 +69,7 @@
                                     Height
                                 </th>
                                 <td>
-                                    <?= $part['height'] ?>cm
+                                    <?= $part['height'] ?><?= ['metric' => 'cm', 'imperial' => ' inch'][$unit] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -77,7 +77,7 @@
                                     Width
                                 </th>
                                 <td>
-                                    <?= $part['width'] ?>cm
+                                    <?= $part['width'] ?><?= ['metric' => 'cm', 'imperial' => ' inch'][$unit] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -85,7 +85,7 @@
                                     Thickness
                                 </th>
                                 <td>
-                                    <?= $part['thickness'] ?>mm
+                                    <?= $part['thickness'] ?><?= ['metric' => 'mm', 'imperial' => ' inch'][$unit] ?>
                                 </td>
                             </tr>
                             <tr>
@@ -107,6 +107,8 @@
                 </tr>
             <?php endforeach ?>
         </table>
+
+        <a href="<?= $editUrl ?>">Edit</a>
     </div>
 </body>
 

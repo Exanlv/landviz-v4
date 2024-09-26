@@ -3,18 +3,18 @@
         <tr>
             <td>Name:</td>
             <td colspan="2">
-                <input class="form-control" type="name" name="n[]">
+                <input class="form-control" type="name" name="n[]" value="<?= $name ?? '' ?>">
             </td>
         </tr>
         <tr>
-            <td>Width: <input class="form-control" type="number" name="w[]" min="0" value="<?= $w ?? '' ?>"></td>
-            <td>Height: <input class="form-control" type="number" name="h[]" min="0" value="<?= $w ?? '' ?>"></td>
-            <td>Thickness: <input class="form-control" type="number" name="t[]" min="0" value="<?= $w ?? '' ?>"></td>
+            <td>Width: <input class="form-control" type="number" name="w[]" min="0" value="<?= $width ?? '' ?>"></td>
+            <td>Height: <input class="form-control" type="number" name="h[]" min="0" value="<?= $height ?? '' ?>"></td>
+            <td>Thickness: <input class="form-control" type="number" name="t[]" min="0" value="<?= $thickness ?? '' ?>"></td>
         </tr>
         <tr>
             <td>
                 Amount:
-                <input class="form-control" type="number" name="a[]" min="0" step="1" value="<?= $w ?? 1 ?>">
+                <input class="form-control" type="number" name="a[]" min="0" step="1" value="<?= $amount ?? 1 ?>">
             </td>
             <td></td>
             <td>

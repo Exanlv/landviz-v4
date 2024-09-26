@@ -20,16 +20,44 @@ class WoodController extends Controller
         return $this->responseBuilder->build($request, 'pages/wood/form', [], false);
     }
 
-    public function document(RequestInterface $request)
+    private function getParts(): array
     {
-        $parts = array_map(fn (string $name, string $width, string $height, string $thickness, string $amount) => [
+        return array_map(fn (string $name, string $width, string $height, string $thickness, string $amount) => [
             'name' => $name,
             'width' => $width,
             'height' => $height,
             'thickness' => $thickness,
             'amount' => $amount,
         ], $_GET['n'], $_GET['w'], $_GET['h'], $_GET['t'], $_GET['a']);
+    }
 
-        return $this->responseBuilder->build($request, 'pages/wood/document', ['parts' => $parts], false);
+    private function getUnits(): array
+    {
+        $override = empty($_GET['so']) ? null : $_GET['so'];
+
+        return isset($_GET['bad_units']) ? [
+            'fontSize' => $override ?? 10,
+            'unit' => 'imperial',
+        ] : [
+            'fontSize' => $override ?? 5,
+            'unit' => 'metric',
+        ];
+    }
+
+    public function document(RequestInterface $request): ResponseInterface
+    {
+        return $this->responseBuilder->build($request, 'pages/wood/document', [
+            'parts' => $this->getParts(),
+            'editUrl' => '/wood/edit?' . urldecode($request->getUri()->getQuery()),
+            ...$this->getUnits(),
+        ], false);
+    }
+
+    public function edit(RequestInterface $request): ResponseInterface
+    {
+        return $this->responseBuilder->build($request, 'pages/wood/form', [
+            'parts' => $this->getParts(),
+            ...$this->getUnits()
+        ], false);
     }
 }
