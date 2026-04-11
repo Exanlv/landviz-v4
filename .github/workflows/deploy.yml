@@ -24,6 +24,6 @@ jobs:
           remote-protocol: sftp
           remote-host: ${{ secrets.SFTP_IP }}
           remote-user: ${{ secrets.SFTP_USERNAME }}
-          remote-path: "www"
+          remote-path: "./webroots/www"
           remote-password: ${{ secrets.SFTP_PASSWORD }}
           sync: full
