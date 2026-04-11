@@ -19,13 +19,10 @@ jobs:
       - name: Dump autoload
         run: composer dump-autoload -o
       - name: Deploy to Landviz.nl
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        uses: milanmk/actions-file-deployer@master
         with:
-          server: ${{ secrets.SFTP_IP }}
-          port: 22
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          sftp_only: true
-          local_path: '.'
-          remote_path: 'www'
-          sftpArgs: '-o ConnectTimeout=15'
+          remote-protocol: "sftp"
+          remote-host: ${{ secrets.SFTP_IP }}
+          remote-user: ${{ secrets.SFTP_USERNAME }}
+          remote-path: "www"
+          remote-password: ${{ secrets.SFTP_PASSWORD }}
