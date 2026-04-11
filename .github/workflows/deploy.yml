@@ -26,6 +26,6 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           sftp_only: true
-          local_path: './*'
-          remote_path: './webroots/www'
+          local_path: '.'
+          remote_path: 'www'
           sftpArgs: '-o ConnectTimeout=15'
