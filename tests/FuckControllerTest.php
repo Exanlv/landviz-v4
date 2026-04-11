@@ -3,8 +3,9 @@
 use Exan\InputParser\Parser;
 use Exan\Landviz\App;
 use Exan\Landviz\Controllers\FuckController;
+use Exan\Moock\Mock;
+use Exan\Moock\MockedClassInterface;
 use Exan\PhpFuck\Fucker;
-use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
@@ -12,13 +13,13 @@ use Psr\Http\Message\StreamInterface;
 class FuckControllerTest extends TestCase
 {
     private FuckController $fuckController;
-    private MockInterface&Parser $parser;
-    private MockInterface&Fucker $fucker;
+    private MockedClassInterface&Parser $parser;
+    private MockedClassInterface&Fucker $fucker;
 
     protected function setUp(): void
     {
-        $this->fucker = Mockery::mock(Fucker::class);
-        $this->parser = Mockery::mock(Parser::class);
+        $this->fucker = Mock::class(Fucker::class);
+        $this->parser = Mock::class(Parser::class);
 
         $container = App::getContainer();
 
@@ -30,26 +31,12 @@ class FuckControllerTest extends TestCase
 
     private function getMockRequest(string $body): RequestInterface
     {
-        /** @var MockInterface&StreamInterface */
-        $stream = Mockery::mock(StreamInterface::class);
+        $stream = Mock::interface(StreamInterface::class);
+        Mock::method($stream->getContents(...))->returns($body);
 
-        $stream
-            ->expects()
-            ->getContents()
-            ->andReturns($body);
-
-        /** @var MockInterface&RequestInterface */
-        $request = Mockery::mock(RequestInterface::class);
-
-        $request
-            ->expects()
-            ->getBody()
-            ->andReturns($stream);
-
-        $request->shouldReceive()
-            ->getHeader()
-            ->with('Accept')
-            ->andReturn([]);
+        $request = Mock::interface(RequestInterface::class);
+        Mock::method($request->getBody(...))->returns($stream);
+        Mock::method($request->getHeader(...))->allow('Accept')->returns([]);
 
         return $request;
     }
@@ -58,17 +45,14 @@ class FuckControllerTest extends TestCase
     {
         $request = $this->getMockRequest('code=::code::');
 
-        $this->parser->shouldReceive()
-            ->parse()
-            ->with($request)
-            ->andReturn(['code' => '::code::']);
-
-        $this->fucker->shouldReceive()->fuckCode()->with('::code::')->andReturns('::fucked code::');
+        Mock::method($this->parser->parse(...))->returns(['code' => '::code::']);
+        Mock::method($this->fucker->fuckCode(...))->returns('::fucked code::');
 
         $response = $this->fuckController->fuck($request);
 
         $body = (string) $response->getBody();
 
-        $this->assertStringContainsString('::fucked&nbsp;code::', $body);
+        $this->assertStringContainsString('::fucked code::', $body);
+        Mock::method($this->fucker->fuckCode(...))->assert()->with('::code::')->calledOnce();
     }
 }
