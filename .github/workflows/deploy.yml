@@ -28,3 +28,4 @@ jobs:
           sftp_only: true
           local_path: './*'
           remote_path: './webroots/www'
+          sftpArgs: '-o ConnectTimeout=15'
