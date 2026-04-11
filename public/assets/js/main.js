@@ -7,10 +7,3 @@ document.getElementById('special-snowflake').onclick = function () {
         snowflake.classList.add('rainbow');
     })
 }
-
-setTimeout(function () {
-    const header = document.getElementById('header');
-
-    header.style.backgroundImage = 'url("/public/assets/img/header-bg.gif")';
-    header.style.backgroundPosition = '50% 40%';
-}, 8000000);

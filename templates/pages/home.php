@@ -16,10 +16,11 @@
         <p>Hey! I'm Max. I started getting into programming late 2016.</p>
 
         <p>
-            I'm a backend developer experienced in Java- & Typescript, PHP, Java, Python and SQL.
-            I also know my way around HTML and CSS and some light photo editing.
-            As for frameworks, most of my experience is with Laravel.
-            I have however also worked with Symfony, Angular, Fastify and jQuery.
+            I'm a backend developer mainly working with PHP, SQL & Typescript.
+            Most of my framework experience is with Laravel. I have however also worked with Symfony in the past, and I like playing around with new, weird or obscure frameworks from time to time.
+        </p>
+        <p>
+            My passion lies with package development, and have dabbled in a wide variety of niche packages.
         </p>
 
         <p>

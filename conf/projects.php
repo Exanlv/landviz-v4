@@ -1,47 +1,34 @@
 <?php
 
 return [
+    'landviz' => [
+        'name' => 'Landviz.nl',
+        'footer' => 'Uses PHP',
+        'img' => '/public/assets/img/projects/landviz_nl.webp',
+        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components dependency injection and configuration. Check out a full list of dependencies <a href="/dependencies">here!</a>. There\'s also a few easter eggs you can try to find. ',
+        'url' => 'https://github.com/Exanlv/landviz-nb',
+        'highlighted' => false,
+    ],
+
+    'moock' => [
+        'name' => 'Moock',
+        'footer' => 'Uses PHP, Reflection',
+        'img' => '/public/assets/img/projects/moock.webp',
+        'description' => 'An independent mocking library to create test doubles of classes or interfaces, allowing for more isolated tests.',
+        'url' => 'https://github.com/Exanlv/moock',
+        'highlighted' => true,
+    ],
+
     'fenrir' => [
         'name' => 'Fenrir',
-        'footer' => 'Uses PHP, ReactPHP',
+        'footer' => 'Uses PHP, ReactPHP, Async',
         'img' => '/public/assets/img/projects/fenrir.webp',
         'description' => 'Fenrir is a low-level wrapper over Discords APIs/gateway. Can be used to create highly optimized Discord bots & apps in PHP.',
         'url' => 'https://github.com/dc-Ragnarok/Fenrir',
         'highlighted' => true,
     ],
-    // 'bifrost' => [
-    //     'name' => 'Bifrost',
-    //     'footer' => 'Uses PHP, ReactPHP (WIP)',
-    //     'img' => '/public/assets/img/projects/bifrost.webp',
-    //     'description' => 'Bifrost is a low-level HTTP library for Discord\'s REST APIs. It handles ratelimiting in a multi-process compatible way.',
-    //     'url' => 'https://github.com/dc-Ragnarok/Bifrost',
-    //     'highlighted' => false,
-    // ],
-    'landviz' => [
-        'name' => 'Landviz.nl',
-        'footer' => 'Uses PHP, Rxak, HttpSoft',
-        'img' => '/public/assets/img/projects/landviz_nl.webp',
-        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components dependency injection and configuration. Check out a full list of dependencies <a href="/dependencies">here!</a>. There\'s also a few easter eggs you can try to find. ',
-        'url' => 'https://github.com/Exanlv/landviz-nb',
-        'highlighted' => true,
-    ],
-    'bread_bot' => [
-        'name' => 'Bread Bot',
-        'footer' => 'Uses Java',
-        'img' => '/public/assets/img/projects/bread.webp',
-        'description' => 'Bread bot is a simple discord bot that allows you to collect points (called bread). These points can then be used to gamble and play minigames with.',
-        'url' => 'https://github.com/Exanlv/java-bread',
-        'highlighted' => false,
-    ],
 
-    // RXAK
-    'container' => [
-        'name' => 'Container',
-        'footer' => 'Uses PHP, PSR-11',
-        'description' => 'An implementation for PSR-11 ContainerInterface which can automatically resolve dependencies. Similar to Laravel\'s container.',
-        'url' => 'https://github.com/rxak-php/Container',
-        'highlighted' => false,
-    ],
+    // Utilities
     'eventer' => [
         'name' => 'Eventer',
         'footer' => 'Uses PHP',
@@ -54,13 +41,6 @@ return [
         'footer' => 'Uses PHP, ReactPHP',
         'description' => 'Some exceptions are temporary, this library allows you to easily retry failed async operations.',
         'url' => 'https://github.com/rxak-php/ReactPHP-Retrier',
-        'highlighted' => false,
-    ],
-    'migrations' => [
-        'name' => 'Migrations',
-        'footer' => 'Uses PHP',
-        'description' => 'Easy to use, framework-agnostic migrations using the filesystem. Designed to not have any external dependencies, can be used for everything from migrating databases to adding a new default value to environment files that isn\'t in source control.',
-        'url' => 'https://github.com/rxak-php/Migrations',
         'highlighted' => false,
     ],
     'phpfuck' => [

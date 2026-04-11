@@ -7,22 +7,17 @@ return [
         ],
     ],
 
-    'Discord' => [
+    'Packages' => [
         'projects' => [
             'fenrir',
-            // 'bifrost',
-            'bread_bot',
+            'moock',
         ],
     ],
 
-    'Rxak' => [
-        'description' => 'Collection of smaller packages.',
-
+    'Tiny utilities' => [
         'projects' => [
-            'container',
             'eventer',
             'reactphp-retrier',
-            'migrations',
         ],
     ],
 
