@@ -21,8 +21,9 @@ jobs:
       - name: Deploy to Landviz.nl
         uses: milanmk/actions-file-deployer@master
         with:
-          remote-protocol: "sftp"
+          remote-protocol: sftp
           remote-host: ${{ secrets.SFTP_IP }}
           remote-user: ${{ secrets.SFTP_USERNAME }}
           remote-path: "www"
           remote-password: ${{ secrets.SFTP_PASSWORD }}
+          sync: full
