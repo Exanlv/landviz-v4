@@ -25,7 +25,7 @@
 
         <p>
             Check out my GitHub profile
-            <a href="https://github.com/Exanlv">
+            <a target="_blank" href="https://github.com/Exanlv">
                 here!
             </a>
         </p>

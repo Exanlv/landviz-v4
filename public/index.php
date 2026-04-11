@@ -18,6 +18,7 @@ $container = App::getContainer();
 
 /** @var StrategyInterface */
 $strategy = (new ApplicationStrategy())->setContainer($container);
+
 /** @var Router */
 $router = (new Router())->setStrategy($strategy);
 
@@ -30,8 +31,8 @@ $router->map('POST', '/fuck', [FuckController::class, 'fuck']);
 
 $router->map('GET', '/dependencies', [DependencyController::class, 'index']);
 
-$router->map('GET', '/wood', [WoodController::class, 'form']);
-$router->map('GET', '/wood/edit', [WoodController::class, 'edit']);
+$router->map('GET', '/wood',          [WoodController::class, 'form']);
+$router->map('GET', '/wood/edit',     [WoodController::class, 'edit']);
 $router->map('GET', '/wood/document', [WoodController::class, 'document']);
 
 $request = ServerRequestCreator::createFromGlobals();
