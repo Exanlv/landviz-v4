@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use Exan\InputParser\Parser;
 use Exan\Landviz\App;
 use Exan\Landviz\Controllers\FuckController;

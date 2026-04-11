@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use Exan\Landviz\App;
 use Exan\Landviz\Controllers\HomeController;
 use HttpSoft\Message\Request;

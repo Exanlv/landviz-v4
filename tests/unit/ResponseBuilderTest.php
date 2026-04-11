@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Unit;
+
 use Exan\Landviz\ResponseBuilder;
 use Exan\Moock\Mock;
 use Exan\Moock\MockedClassInterface;
