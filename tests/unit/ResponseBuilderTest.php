@@ -1,21 +1,22 @@
 <?php
 
 use Exan\Landviz\ResponseBuilder;
+use Exan\Moock\Mock;
+use Exan\Moock\MockedClassInterface;
 use HttpSoft\Message\Request;
 use HttpSoft\Message\StreamFactory;
 use League\Plates\Engine;
-use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 class ResponseBuilderTest extends TestCase
 {
-    private Engine&MockInterface $engine;
+    private MockedClassInterface&Engine $engine;
     private ResponseBuilder $responseBuilder;
 
     protected function setUp(): void
     {
-        $this->engine = Mockery::mock(Engine::class);
+        $this->engine = Mock::class(Engine::class);
 
         $this->responseBuilder = new ResponseBuilder($this->engine, new StreamFactory());
         $this->responseBuilder->disableDisclaimer();
@@ -30,8 +31,6 @@ class ResponseBuilderTest extends TestCase
 
     public function testItReturnsJsonIfRequestedAndAllowed()
     {
-        $this->engine->shouldNotReceive()->render();
-
         $response = $this->responseBuilder->build(
             $this->getRequest('application/json'),
             '::path::',
@@ -41,15 +40,15 @@ class ResponseBuilderTest extends TestCase
 
         $this->assertEquals(json_encode(['hello' => 'there']), (string) $response->getBody());
         $this->assertContains('application/json', $response->getHeader('Content-Type'));
+        Mock::method($this->engine->render(...))->assert()->not()->called();
     }
 
     public function testItDoesNotReturnJsonIfRequestedAndNotAllowed()
     {
         $data = ['hello' => 'there'];
-        $this->engine->shouldReceive()
-            ->render()
-            ->with('::path::', $data)
-            ->andReturns('Some cool rendered template');
+        Mock::method($this->engine->render(...))
+            ->allow('::path::', $data)
+            ->returns('Some cool rendered template');
 
         $response = $this->responseBuilder->build(
             $this->getRequest('application/json'),
@@ -64,10 +63,9 @@ class ResponseBuilderTest extends TestCase
     public function testItReturnsHtmlIfJsonIsAllowedButNotRequested()
     {
         $data = ['hello' => 'there'];
-        $this->engine->shouldReceive()
-            ->render()
-            ->with('::path::', $data)
-            ->andReturns('Some cool rendered template');
+        Mock::method($this->engine->render(...))
+            ->allow('::path::', $data)
+            ->returns('Some cool rendered template');
 
         $response = $this->responseBuilder->build(
             $this->getRequest('text/html'),
@@ -82,10 +80,9 @@ class ResponseBuilderTest extends TestCase
     public function testItReturnsHtmlIfNoAcceptHeaderIsPresent()
     {
         $data = ['hello' => 'there'];
-        $this->engine->shouldReceive()
-            ->render()
-            ->with('::path::', $data)
-            ->andReturns('Some cool rendered template');
+        Mock::method($this->engine->render(...))
+            ->allow('::path::', $data)
+            ->returns('Some cool rendered template');
 
         $response = $this->responseBuilder->build(
             new Request(),
