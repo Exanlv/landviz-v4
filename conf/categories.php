@@ -16,6 +16,7 @@ return [
 
     'Tiny utilities' => [
         'projects' => [
+            'pu-documenter',
             'eventer',
             'reactphp-retrier',
         ],
