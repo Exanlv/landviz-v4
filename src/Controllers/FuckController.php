@@ -2,7 +2,6 @@
 
 namespace Exan\Landviz\Controllers;
 
-use Exan\Config\Config;
 use Exan\InputParser\Exceptions\NoDriverException;
 use Exan\InputParser\Parser;
 use Exan\Landviz\ResponseBuilder;
@@ -19,7 +18,6 @@ class FuckController extends Controller
 {
     public function __construct(
         private readonly ResponseBuilder $responseBuilder,
-        private readonly Config $config,
         private readonly Fucker $fucker,
         private readonly Parser $parser,
         private readonly ValidatorInterface $validator,
@@ -65,6 +63,10 @@ class FuckController extends Controller
             $code = $default;
         }
 
-        return $this->responseBuilder->build($request, 'pages/fuck/display', ['code' => $this->fucker->fuckCode($code)]);
+        return $this->responseBuilder->build(
+            $request,
+            'pages/fuck/display',
+            ['code' => $this->fucker->fuckCode($code)]
+        );
     }
 }

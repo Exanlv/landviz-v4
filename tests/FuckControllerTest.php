@@ -1,11 +1,14 @@
 <?php
 
+namespace Tests;
+
 use Exan\InputParser\Parser;
 use Exan\Landviz\App;
 use Exan\Landviz\Controllers\FuckController;
 use Exan\Moock\Mock;
 use Exan\Moock\MockedClassInterface;
 use Exan\PhpFuck\Fucker;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
@@ -41,7 +44,8 @@ class FuckControllerTest extends TestCase
         return $request;
     }
 
-    public function testItFucksCode()
+    #[Test]
+    public function it_fucks_code()
     {
         $request = $this->getMockRequest('code=::code::');
 

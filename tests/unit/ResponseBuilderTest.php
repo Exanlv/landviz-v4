@@ -1,11 +1,14 @@
 <?php
 
+namespace Tests\Unit;
+
 use Exan\Landviz\ResponseBuilder;
 use Exan\Moock\Mock;
 use Exan\Moock\MockedClassInterface;
 use HttpSoft\Message\Request;
 use HttpSoft\Message\StreamFactory;
 use League\Plates\Engine;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
@@ -29,7 +32,8 @@ class ResponseBuilderTest extends TestCase
         return $request;
     }
 
-    public function testItReturnsJsonIfRequestedAndAllowed()
+    #[Test]
+    public function it_returns_json_if_requested_and_allowed()
     {
         $response = $this->responseBuilder->build(
             $this->getRequest('application/json'),
@@ -43,7 +47,8 @@ class ResponseBuilderTest extends TestCase
         Mock::method($this->engine->render(...))->assert()->not()->called();
     }
 
-    public function testItDoesNotReturnJsonIfRequestedAndNotAllowed()
+    #[Test]
+    public function it_does_not_return_json_if_requested_and_not_allowed()
     {
         $data = ['hello' => 'there'];
         Mock::method($this->engine->render(...))
@@ -60,7 +65,8 @@ class ResponseBuilderTest extends TestCase
         $this->assertEquals('Some cool rendered template', (string) $response->getBody());
     }
 
-    public function testItReturnsHtmlIfJsonIsAllowedButNotRequested()
+    #[Test]
+    public function it_returns_html_if_json_is_allowed_but_not_requested()
     {
         $data = ['hello' => 'there'];
         Mock::method($this->engine->render(...))
@@ -77,7 +83,8 @@ class ResponseBuilderTest extends TestCase
         $this->assertEquals('Some cool rendered template', (string) $response->getBody());
     }
 
-    public function testItReturnsHtmlIfNoAcceptHeaderIsPresent()
+    #[Test]
+    public function it_returns_html_if_no_accept_header_is_present()
     {
         $data = ['hello' => 'there'];
         Mock::method($this->engine->render(...))
