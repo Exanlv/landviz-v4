@@ -26,8 +26,8 @@ class FuckControllerTest extends TestCase
 
         $container = App::getContainer();
 
-        $container->register(Fucker::class, $this->fucker);
-        $container->register(Parser::class, $this->parser);
+        $container->add(Fucker::class, fn () => $this->fucker);
+        $container->add(Parser::class, fn () => $this->parser);
 
         $this->fuckController = $container->get(FuckController::class);
     }

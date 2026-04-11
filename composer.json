@@ -13,7 +13,6 @@
         }
     },
     "require": {
-        "exan/container": "^1.0.1",
         "httpsoft/http-server-request": "^1.1",
         "httpsoft/http-emitter": "^1.1",
         "league/plates": "^3.5",
@@ -21,7 +20,8 @@
         "exan/phpfuck": "^1.0",
         "league/route": "^5.0",
         "exan/input-parser": "^1.0",
-        "symfony/validator": "^6.3"
+        "symfony/validator": "^6.3",
+        "league/container": "^5.2"
     },
     "require-dev": {
         "symfony/var-dumper": "^8",
