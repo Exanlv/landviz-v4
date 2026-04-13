@@ -9,8 +9,6 @@ use League\Container\Container;
 use League\Container\ReflectionContainer;
 use League\Plates\Engine;
 use Psr\Http\Message\StreamFactoryInterface;
-use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class App
 {
@@ -46,7 +44,6 @@ class App
         $container->add(Engine::class, fn () => $engine);
         $container->add(Config::class, fn () => $config);
         $container->add(StreamFactoryInterface::class, fn () => new StreamFactory());
-        $container->add(ValidatorInterface::class, fn () => Validation::createValidator());
 
         return $container;
     }

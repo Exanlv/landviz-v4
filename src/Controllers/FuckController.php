@@ -8,11 +8,6 @@ use Exan\Landviz\ResponseBuilder;
 use Exan\PhpFuck\Fucker;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Constraints\Type;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class FuckController extends Controller
 {
@@ -20,7 +15,6 @@ class FuckController extends Controller
         private readonly ResponseBuilder $responseBuilder,
         private readonly Fucker $fucker,
         private readonly Parser $parser,
-        private readonly ValidatorInterface $validator,
     ) {
     }
 
@@ -37,21 +31,16 @@ class FuckController extends Controller
             $body = [];
         }
 
-        /** @var ConstraintViolationListInterface */
-        $violations = $this->validator->validate($body, new Collection([
-            'code' => new Type('string'),
-        ], allowMissingFields: true));
-
-        $errors = array_map(fn (ConstraintViolationInterface $constraintViolation) => [
-            'path' => $constraintViolation->getPropertyPath(),
-            'message' => $constraintViolation->getMessage(),
-        ], iterator_to_array($violations));
-
-        if (count($errors)) {
+        if (isset($body['code']) && !is_string($body['code'])) {
             return $this->responseBuilder->build(
                 $request,
                 'pages/fuck/form',
-                ['errors' => $errors]
+                ['errors' => [
+                    [
+                        'path' => 'code',
+                        'message' => 'This should be a valid string',
+                    ]
+                ]]
             )->withStatus(400);
         }
 

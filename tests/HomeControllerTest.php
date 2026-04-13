@@ -34,8 +34,7 @@ class HomeControllerTest extends TestCase
         $body = (string) $response->getBody();
 
         $this->assertStringContainsString('Discord', $body);
-        $this->assertStringContainsString('Rxak', $body);
-        $this->assertStringContainsString('Collection of smaller packages.', $body);
-        $this->assertStringContainsString('Container', $body);
+        $this->assertStringContainsString('Packages', $body);
+        $this->assertStringContainsString('Tiny utilities', $body);
     }
 }

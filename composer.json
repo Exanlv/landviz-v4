@@ -20,7 +20,6 @@
         "exan/phpfuck": "^1.0",
         "league/route": "^5.0",
         "exan/input-parser": "^1.0",
-        "symfony/validator": "^6.3",
         "league/container": "^5.2"
     },
     "require-dev": {

@@ -27,7 +27,7 @@
     'components/available-as-json',
     [
         'method' => 'POST',
-        'body' => json_encode(['code' => 'my-code']),
+        'body' => str_replace('"', '\\"', json_encode(['code' => 'my-code'])),
         'headers' => [
             '\'Content-Type: application/json\''
         ],
