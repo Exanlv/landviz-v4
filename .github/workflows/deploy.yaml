@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: landviz.nl
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # - name: Install PHP 8.5
+      #   uses: shivammathur/setup-php@v2
+      #   with:
+      #     php-version: 8.5
+
+      - name: Install sshpass & sshfs
+        run: sudo apt-get update && sudo apt-get install -y sshpass sshfs
+
+      - run: mkdir ~/.ssh
+      - run: mkdir live
+      - run: echo ${{ secrets.SFTP_PASSWORD }} > ~/.ssh/known_hosts
+
+      - name: Deploy via SCP with password
+        run: sshfs ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_IP }}:webroots/www/ ./live/
