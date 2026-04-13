@@ -26,3 +26,5 @@ jobs:
 
       - name: Mount sshfs
         run: sshpass -f ~/.password sshfs ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_IP }}:webroots/www/ ./live/
+
+      - run: ls -al ./live
