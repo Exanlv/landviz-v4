@@ -17,14 +17,13 @@ jobs:
       #     php-version: 8.5
 
       - name: Install sshpass & sshfs
-        run: sudo apt-get update && sudo apt-get install -y sshpass sshfs
+        run: sudo apt-get update && sudo apt-get install -y sshfs
 
       - run: mkdir ~/.ssh
       - run: mkdir live
       - run: echo "${{ secrets.KNOWN_HOST }}" > ~/.ssh/known_hosts
-      - run: echo "${{ secrets.SFTP_PASSWORD }}" > ~/.password
 
       - name: Mount sshfs
-        run: sshpass -f ~/.password sshfs ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_IP }}:webroots/www/ ./live/
+        run: echo "${{ secrets.SFTP_PASSWORD }}" | sshfs ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_IP }}:webroots/www/ ./live/ -o password_stdin
 
       - run: ls -al ./live
