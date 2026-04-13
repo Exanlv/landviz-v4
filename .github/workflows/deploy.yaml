@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      # - name: Install PHP 8.5
-      #   uses: shivammathur/setup-php@v2
-      #   with:
-      #     php-version: 8.5
+      - name: Install PHP 8.5
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.5
 
       - name: Install sshpass & sshfs
         run: sudo apt-get update && sudo apt-get install -y sshfs
@@ -27,3 +27,15 @@ jobs:
         run: echo "${{ secrets.SFTP_PASSWORD }}" | sshfs ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_IP }}:webroots/www/ ./live/ -o password_stdin
 
       - run: ls -al ./live
+
+      - run: cp .htaccess ./live/.htaccess
+      - run: cp composer.json ./live/composer.json
+      - run: cp composer.lock ./live/composer.lock
+      - run: rm -rf ./live/conf && cp -r conf ./live/conf
+      - run: rm -rf ./live/public && cp -r public ./live/public
+      - run: rm -rf ./live/src && cp -r src ./live/src
+      - run: rm -rf ./live/templates && cp -r templates ./live/templates
+
+      - name: Install dependencies
+        run: composer install --no-dev --optimize-autoloader
+        working-directory: ./live
