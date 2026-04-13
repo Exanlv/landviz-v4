@@ -5,7 +5,7 @@ return [
         'name' => 'Landviz.nl',
         'footer' => 'Uses PHP',
         'img' => '/public/assets/img/projects/landviz_nl.webp',
-        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components dependency injection and configuration. Check out a full list of dependencies <a href="/dependencies">here!</a>. There\'s also a few easter eggs you can try to find. ',
+        'description' => 'This site is made using HttpSoft\'s PSR-7 implementations and some self-made components for input parsing and configuration. Check out a full list of dependencies <a href="/dependencies">here!</a>. There\'s also a few easter eggs you can try to find. ',
         'url' => 'https://github.com/Exanlv/landviz-nb',
         'highlighted' => false,
     ],

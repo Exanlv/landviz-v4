@@ -16,7 +16,7 @@ jobs:
         with:
           php-version: 8.5
 
-      - name: Install sshpass & sshfs
+      - name: Install sshfs
         run: sudo apt-get update && sudo apt-get install -y sshfs
 
       - run: mkdir ~/.ssh
