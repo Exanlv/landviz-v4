@@ -21,8 +21,8 @@ jobs:
 
       - run: mkdir ~/.ssh
       - run: mkdir live
-      - run: echo ${{ secrets.KNOWN_HOST }} > ~/.ssh/known_hosts
-      - run: echo ${{ secrets.SFTP_PASSWORD }} > ~/.password
+      - run: echo "${{ secrets.KNOWN_HOST }}" > ~/.ssh/known_hosts
+      - run: echo "${{ secrets.SFTP_PASSWORD }}" > ~/.password
 
       - name: Mount sshfs
         run: sshpass -f ~/.password sshfs ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_IP }}:webroots/www/ ./live/
