@@ -32,7 +32,7 @@ return [
     'pu-documenter' => [
         'name' => 'PU Documenter',
         'footer' => 'Uses PHP, PHPUnit, Markdown',
-        'description' => 'Writing documentation is alright, remembering to keep it up-to-date is a pain. This package converts feature tests into documentation, allowing you to ensure your examples are up-to-date with any package updates. This is what\'s used for <a href="https://github.com/Exanlv/moock/blob/main/documentation.md">Moock\'s documentation!</a>',
+        'description' => 'Writing documentation is alright, remembering to keep it up-to-date is a pain. This package converts feature tests into documentation, allowing you to ensure your examples are up-to-date with any package updates. This is what\'s used for <a target="_blank" href="https://github.com/Exanlv/moock/blob/main/documentation.md">Moock\'s documentation!</a>',
         'url' => 'https://github.com/Exanlv/PuDocumenter',
         'highlighted' => false,
     ],
